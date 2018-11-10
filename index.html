@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>TriangleOnly</title>
+</head>
+<body>
+	<canvas id="ai" width="200" height="200" style="border:1px solid #d3d3d3; margin-right: 50px;">
+                        Your browser does not support the HTML5 canvas tag.</canvas>
+                        <canvas id="target" width="200" height="200" style="border:1px solid #d3d3d3;">
+                        Your browser does not support the HTML5 canvas tag.</canvas>
+                        <div class="select" onchange="change()">
+                            <select id="selection">
+                                <option>Chrome</option>
+                                <option>Mona Lisa</option>
+                                <option>My Picture</option>
+                            </select>
+                        </div>
+                        <script src="./triangleonly.js"></script>
+                        <script>
+                            pop_s = 75;
+                            n = 75;
+                            sourcep = "chrome.jpg";
+                            backgroundc = "#FFF";
+                            setup();
+
+                            function change() {
+                                stop();
+                                var x = document.getElementById("selection").value;
+                                if(x == "Chrome") {
+                                    pop_s = 75;
+                                    n = 75;
+                                    sourcep = "chrome.jpg";
+                                    backgroundc = "#FFF";
+                                }
+                                if(x == "Mona Lisa") {
+                                    pop_s = 50;
+                                    n = 125;
+                                    sourcep = "monalisa.png";
+                                    backgroundc = "#222";
+                                }
+                                if(x == "My Picture") {
+                                    pop_s = 75;
+                                    n = 150;
+                                    sourcep = "mypicture.jpg";
+                                    backgroundc = "#FFF";
+                                }
+                                setup();
+                            }
+                        </script>
+                        <br><button type="button" onclick="start()">Start</button>
+                        <br><button type="button" onclick="stop()">Stop</button>
+                        <br>
+                        <br>
+                        <a id="generation">Generation 0</a><br>
+                        <a id="fitness">Fitness Value: 0%</a><br>
+                        <br>
+</body>
+</html>
